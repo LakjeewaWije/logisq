@@ -32,7 +32,7 @@
               <div class="invalid-feedback" [ngStyle]="isRequestAccessError? {'display': 'block'} : {'display': 'none'}">
                 {{ requestAccessError }}
               </div>
-              <button type="submit" [disabled]="profileForm.value.email == '' || profileForm.value.password == ''|| profileForm.value.contact == ''|| profileForm.value.reason == ''" class="btn btn-primary" style="width: 100%">Request Access</button>
+              <button type="submit" [disabled]="profileForm.value.email == '' || profileForm.value.password == ''|| profileForm.value.contact == ''|| profileForm.value.reason == '' || profileForm.controls.email.status == 'INVALID' || profileForm.controls.contact.status == 'INVALID'" class="btn btn-primary" style="width: 100%">Request Access</button>
               <a routerLink="/login"><h6>Login?</h6></a>
             </form>
           </div>
@@ -46,13 +46,34 @@
 <!--  </button>-->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<!--  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <h5 class="modal-title" id="exampleModalLabel">Status</h5>-->
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--&lt;!&ndash;            <span aria-hidden="true">&times;</span>&ndash;&gt;-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <h5>Your request will be acknowledged by an admin shortly</h5>-->
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-primary" (click)="onModalOk()" routerLink="/login">OK</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Status</h5>
+          <h5 class="modal-title">Status</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<!--            <span aria-hidden="true">&times;</span>-->
+            <!--            <span aria-hidden="true">&times;</span>-->
           </button>
         </div>
         <div class="modal-body">
@@ -63,5 +84,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

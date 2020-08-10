@@ -1,8 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Sans+Caption&display=swap');
 .card{
   border-radius: 8px;
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0px 2px 9px #d1d1d1;
 }
 
 .card:hover{
   background-color: #006ee5;
   color: white;
+  cursor: pointer;
+}
+
+.map-container{
+  box-shadow: 1px 3px 8px #9f9f9f;border-radius: 10px;
+}
+
+.card-view-all{
+  background: #68d3b0;
+  color: black;
+}
+.card-view-all:hover{
+  background: #000000;
+  color: white;
+  cursor: pointer;
 }

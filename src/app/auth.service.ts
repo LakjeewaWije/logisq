@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {catchError, mapTo, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
-import {config, Observable, of} from 'rxjs';
+import {BehaviorSubject, config, Observable, of, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,10 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
-
+  // name: any = new Subject();
+  // broadcastLoginChange(text) {
+  //   this.name.next(text);
+  // }
   constructor(private http: HttpClient) {}
 
   login(value): Observable<any> {

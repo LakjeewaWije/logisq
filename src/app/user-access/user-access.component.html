@@ -1,3 +1,29 @@
-<p>
-  user-access works!
-</p>
+<div>
+  <div class="container-fluid">
+    <div class="row" style="padding: 1%;max-height: 90vh;overflow-y: auto;">
+      <table class="table">
+        <thead class="bg-primary" style="color: white">
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Request reason</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody style="border: 1px solid #027bfe">
+        <tr *ngFor="let request of requests">
+          <th>{{request.emailAddress}}</th>
+          <td>{{request.contactNumber}}</td>
+          <td>{{request.reason}}</td>
+          <td [ngStyle]="{'color': request.status == 'pending' ? 'blue' : (request.status == 'rejected' ? 'red' : request.status == 'accepted' ? '#23cd23':null) }" style="font-weight: bold">{{request.status | uppercase}}</td>
+          <td style="width: 14%">
+            <button type="submit" class="btn btn-primary" *ngIf="request.status == 'pending'" (click)="acceptUser(request)">Approve</button>
+            <button type="submit" class="btn btn-danger" style="margin-left: 1rem" *ngIf="request.status == 'pending'" (click)="rejectUser(request)">Deny</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

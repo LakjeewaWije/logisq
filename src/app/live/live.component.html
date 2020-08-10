@@ -2,11 +2,22 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-        <div class="d-flex flex-column bd-highlight mb-3">
-          <div class="p-2 bd-highlight" *ngFor="let device of deviceList">
+        <div class="d-flex flex-column bd-highlight mb-3" style="max-height: 85vh;overflow-y: auto;">
+          <div class="p-2 bd-highlight" *ngFor="let device of deviceList" (click)="viewSelectedDevice(device)">
             <div class="card">
               <div class="card-body">
-                {{ device.name }}
+                <div class="d-flex justify-content-between">
+                  <div class="p-2 bd-highlight">{{ device.serial }}</div>
+                  <div class="p-2 bd-highlight" style="font-size: 0.9rem;">{{ device.name }}</div>
+                  <div class="p-2 bd-highlight"><i class="fas fa-arrow-right"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-2 bd-highlight" *ngIf="isSingleDeviceSelected" (click)="viewAllDevices()">
+            <div class="card card-view-all">
+              <div class="card-body">
+                <h5 style="text-align: center">View All</h5>
               </div>
             </div>
           </div>

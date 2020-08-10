@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService} from './login.service';
 import {AuthService} from '../auth.service';
 import { Router } from '@angular/router';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,6 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
-
   // tslint:disable-next-line:no-shadowed-variable
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
         // tslint:disable-next-line:triple-equals
         if (data.status) {
           console.log('success 123', data);
+          localStorage.setItem('logisqUser', this.profileForm.value.email);
+          // this.authService.broadcastLoginChange('wije');
           this.router.navigate(['/live']).then(r => true);
         } else {
           console.error('There was an error!', data.data.error.payload.message);
