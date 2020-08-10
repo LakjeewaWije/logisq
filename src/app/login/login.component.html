@@ -1,0 +1,36 @@
+
+<div class="login-page">
+<div class="authDiv">
+<div class="card mb-3" style="max-width: 540px;box-shadow: 4px 4px 12px #dbd8d8d1;">
+  <div class="row no-gutters">
+    <div class="col-md-4" style="width: 400px;
+    background: url(https://image.freepik.com/free-vector/maritime-transport-logistics-industry_24640-8529.jpg);
+    background-position: right;">
+<!--      <img src="https://image.freepik.com/free-vector/maritime-transport-logistics-industry_24640-8529.jpg" class="card-img side-image" alt="...">-->
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3>LOGISQ</h3>
+        <h5 class="card-title">Login</h5>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          </div>
+          <div class="invalid-feedback" [ngStyle]="isLoginError? {'display': 'block'} : {'display': 'none'}">
+            {{ loginError }}
+          </div>
+          <button type="submit" [disabled]="profileForm.value.email == '' || profileForm.value.password == ''" class="btn btn-primary" style="width: 100%">Login</button>
+          <a routerLink="/access"><h6>Request Access?</h6></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

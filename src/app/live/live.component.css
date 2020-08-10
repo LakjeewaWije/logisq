@@ -1,0 +1,8 @@
+.card{
+  border-radius: 8px;
+}
+
+.card:hover{
+  background-color: #006ee5;
+  color: white;
+}
