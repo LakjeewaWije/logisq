@@ -68,7 +68,7 @@ export class LiveComponent implements OnInit, AfterViewInit {
     this.socketService.setupSocketConnection().on('update', msg => {
       console.log('Updated ', msg);
       const fleetTobeChanged = this.markers.findIndex(initial => initial.id === msg.id);
-      console.log('fleetTobeChanged', fleetTobeChanged, 'this.markers[fleetTobeChanged]',this.markers[fleetTobeChanged]);
+      console.log('fleetTobeChanged', fleetTobeChanged, 'this.markers[fleetTobeChanged]', this.markers[fleetTobeChanged]);
       const changing = this.markers[fleetTobeChanged];
       changing.position.lat = msg.coordinates.lat;
       changing.position.lng = msg.coordinates.lng;
