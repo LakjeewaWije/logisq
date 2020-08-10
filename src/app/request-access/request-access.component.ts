@@ -28,16 +28,16 @@ export class RequestAccessComponent implements OnInit {
 
     // document.querySelector('#exampleModal');
     // $('#exampleModal').modal('show');
-    // this.accessService.requestAccess(this.profileForm.value).subscribe({
-    //   next: data => {console.log('success', data);
-    //                  modal.style.display = 'block';
-    //   },
-    //   error: error => {
-    //     console.error('There was an error!', error.error.payload.message);
-    //     this.requestAccessError = error.error.payload.message;
-    //     this.isRequestAccessError = true;
-    //   }
-    // });
+    this.accessService.requestAccess(this.profileForm.value).subscribe({
+      next: data => {console.log('success', data);
+                     modal.style.display = 'block';
+      },
+      error: error => {
+        console.error('There was an error!', error.error.payload.message);
+        this.requestAccessError = error.error.payload.message;
+        this.isRequestAccessError = true;
+      }
+    });
   }
 
   onModalOk() {
